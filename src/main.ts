@@ -1,28 +1,15 @@
-import './style.css';
-import typescriptLogo from './typescript.svg';
-import viteLogo from './vite.svg';
-import { setupCounter } from './counter';
-
 (() => {
-  const app = document.createElement('div');
-  document.body.append(app);
-  return app;
-})().innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+  const lyricBody = document.querySelectorAll(".lyricBody");
+  for (let i = 0; i < lyricBody.length; ++i) {
+    const elem = lyricBody[i] as HTMLElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+    elem.style.userSelect = "auto";
+    (elem.style as any).oUserSelect = "auto";
+    (elem.style as any).msUserSelect = "auto";
+    (elem.style as any).mozUserSelect = "auto";
+    (elem.style as any).webkitUserSelect = "auto";
+
+    elem.onselectstart = null;
+    elem.oncontextmenu = null;
+  }
+})();
